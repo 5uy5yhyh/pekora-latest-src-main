@@ -1,0 +1,18 @@
+{
+  "BaseUrl": "http://localhost:5000",
+  "RCCUrl": "http://localhost",
+  "Debug": true,
+  "Ports": {
+    "Process": 3043,
+    "RCC": {
+      "All": [64989],
+      "Player": [64989],
+      "Image": [64989],
+      "Place": [64989],
+      "Catalog": [64989]
+    }
+  },
+  "Paths": {
+    "RCCService": "../RCCService"
+  }
+}
