@@ -1,6 +1,6 @@
 {
   "BaseUrl": "http://localhost:5000",
-  "RCCUrl": "http://localhost",
+  "RCCUrl": "http://127.0.0.1",
   "Debug": true,
   "Ports": {
     "Process": 3043,

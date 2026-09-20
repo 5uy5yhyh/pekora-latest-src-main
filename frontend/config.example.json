@@ -31,32 +31,32 @@
         "userProfileUserStatusEnabled": true,
         "downloadGameClients": [
           {
-            "imageUrl": "https://www.pekora.zip/img/player.png",
+            "imageUrl": "http://localhost:5000/img/player.png",
             "title": "Download the Pekora Client for Windows",
             "url": "https://github.com/shikataganaii/Pekora-Bootstrapper/releases"
           },
 		  {
-            "imageUrl": "https://www.pekora.zip/img/Pekora.png",
+            "imageUrl": "http://localhost:5000/img/Pekora.png",
             "title": "Mobile clients",
-            "url": "https://www.pekora.zip/download2"
+            "url": "http://localhost:5000/download2"
           },
           {
-            "imageUrl": "https://www.pekora.zip/img/studio.png",
+            "imageUrl": "http://localhost:5000/img/studio.png",
             "title": "Download the Pekora 2017 Studio for Windows (Unstable, 2018 recommended)",
             "url": "https://setup.pekora.zip/PekoraStudio2017.zip"
           },
           {
-            "imageUrl": "https://www.pekora.zip/img/studio.png",
+            "imageUrl": "http://localhost:5000/img/studio.png",
             "title": "Download the Pekora 2018 Studio for Windows",
             "url": "https://setup.pekora.zip/PekoraStudio2018.zip"
           },
           {
-            "imageUrl": "https://www.pekora.zip/img/studio.png",
+            "imageUrl": "http://localhost:5000/img/studio.png",
             "title": "Download the Pekora 2020 Studio for Windows",
             "url": "https://setup.pekora.zip/PekoraStudio2020.zip"
           },
           {
-            "imageUrl": "https://www.pekora.zip/img/studio.png",
+            "imageUrl": "http://localhost:5000/img/studio.png",
             "title": "Download the Pekora 2021 Studio for Windows",
             "url": "https://setup.pekora.zip/PekoraStudio2021.zip"
           }

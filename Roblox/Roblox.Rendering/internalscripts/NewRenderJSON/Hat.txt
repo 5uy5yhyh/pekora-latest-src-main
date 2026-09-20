@@ -7,7 +7,7 @@
        "PNG",
        1680,
        1680,
-       "https://www.pekora.zip",
+       "http://localhost:5000",
        true,
        0,
        0,

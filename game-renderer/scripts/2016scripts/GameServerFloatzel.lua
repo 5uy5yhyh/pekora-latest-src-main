@@ -4,7 +4,7 @@ local http = game:GetService("HttpService");
 http.HttpEnabled = false;
 
 -- begin dynamiclly edited
-local url = "http://www.projex.zip";
+local url = "http://localhost:5000";
 local port = %port%;
 local placeId = %placeId%;
 local creatorType = Enum.CreatorType.User;

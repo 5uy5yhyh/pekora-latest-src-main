@@ -10,13 +10,14 @@ import Script from "next/script";
 const AvatarPage = () => {
     return <Theme2016>
         <Head>
-            <title>Avatar - Pekora</title>
-            <script src="/js/3d/three-r137/three.js" />
-            <script src="/js/3d/three-r137/MTLLoaderr.js" />
-            <script src="/js/3d/three-r137/OBJLoaderr.js" />
-            <script src="/js/3d/three-r137/RobloxOrbitControls.js" />
-            <script src="/js/3d/tween.js" />
-        </Head>
+    <title>Avatar - Pekora</title>
+</Head>
+
+<Script src="/js/3d/three-r137/three.js" strategy="beforeInteractive" />
+<Script src="/js/3d/three-r137/MTLLoaderr.js" strategy="afterInteractive" />
+<Script src="/js/3d/three-r137/OBJLoaderr.js" strategy="afterInteractive" />
+<Script src="/js/3d/three-r137/RobloxOrbitControls.js" strategy="afterInteractive" />
+<Script src="/js/3d/tween.js" strategy="afterInteractive" />
         <div className="container flex flex-column ssp">
             <AdBanner context="MyCharacterPage"/>
             <AvatarInfoStore.Provider>

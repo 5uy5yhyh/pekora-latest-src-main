@@ -121,6 +121,9 @@ const AvatarInfoStore = createContainer(() => {
         while (avThumb == null && attempts <= 10) {
             let thumbnail = await multiGetUserThumbnails({userIds: [auth.userId]})
                 .then(result => result[0]);
+
+                console.log("[AVATAR THUMBNAIL DEBUG]", thumbnail);
+                
             if (thumbnail.state === "Completed" && typeof thumbnail.imageUrl === "string") {
                 setAvThumb(thumbnail.imageUrl);
                 break;

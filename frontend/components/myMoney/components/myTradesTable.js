@@ -66,7 +66,7 @@ const MyTradesTable = props => {
             <option value='inactive'>Inactive</option>
           </select>
           <p className={s.tradeTypeActions + ' ms-2'}>
-            <a href='https://pekora.zip/help'>
+            <a href='http://localhost:5000/help'>
               How do I send a trade?
             </a>
           </p>

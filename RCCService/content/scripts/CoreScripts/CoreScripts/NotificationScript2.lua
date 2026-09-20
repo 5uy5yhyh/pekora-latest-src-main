@@ -91,9 +91,9 @@ if friendRequestNotificationFIntSuccess and friendRequestNotificationFIntValue ~
 end
 
 --[[ Images ]]--
-local PLAYER_POINTS_IMG = 'https://www.pekora.zip/asset?id=206410433'
-local BADGE_IMG = 'https://www.pekora.zip/asset?id=206410289'
-local FRIEND_IMAGE = 'https://www.pekora.zip/thumbs/avatar.ashx?userId='
+local PLAYER_POINTS_IMG = 'http://localhost:5000/asset?id=206410433'
+local BADGE_IMG = 'http://localhost:5000/asset?id=206410289'
+local FRIEND_IMAGE = 'http://localhost:5000/thumbs/avatar.ashx?userId='
 
 --[[ Gui Creation ]]--
 local function createFrame(name, size, position, bgt)

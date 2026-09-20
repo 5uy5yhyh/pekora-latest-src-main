@@ -1944,7 +1944,7 @@ local detailsMenuCount = 0
 function openDetails(assetId)
 	--[[if isCoreSetup then
 		closeMenu()
-		guiService:OpenBrowserWindow("https://www.pekora.zip/catalog/"..tostring(assetId).."/name")
+		guiService:OpenBrowserWindow("http://localhost:5000/catalog/"..tostring(assetId).."/name")
 	else]]
 		detailsMenuCount = detailsMenuCount + 1
 		local myDetailsMenuCount = detailsMenuCount

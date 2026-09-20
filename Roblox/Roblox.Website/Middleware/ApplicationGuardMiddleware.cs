@@ -298,6 +298,7 @@ public class ApplicationGuardMiddleware
 
         var uaTimer = new MiddlewareTimer(ctx, "ua");
         var ua = ctx.Request.Headers["user-agent"].ToString();
+        Console.WriteLine($"[RCC UA DEBUG] UA={ua} PATH={normalizedPath}");
         var uaBlocked = IsUserAgentBlocked(ua);
         if(uaBlocked)
         {

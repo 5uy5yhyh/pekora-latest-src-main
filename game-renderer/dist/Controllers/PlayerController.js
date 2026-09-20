@@ -1,3 +1,4 @@
+import fs from "fs";
 import express from "ultimate-express";
 import Config from "../Utilities/Libraries/Config.js";
 import Valid from "../Utilities/Middleware/ValidateDto.js";
@@ -7,17 +8,19 @@ import { QueueBox } from "../Utilities/Libraries/Queue.js";
 import AvatarTemplate from "../../scripts/Avatar.json" with { type: "json" };
 import HeadshotTemplate from "../../scripts/Closeup.json" with { type: "json" };
 import { RequestRCCBase } from "./BaseController.js";
+const AvatarLua = fs.readFileSync(new URL("../../scripts/2016scripts/Avatar.lua", import.meta.url), "utf8");
 const router = express.Router();
 const box = new QueueBox(`PlayerBox`, Config.Ports.RCC.Player);
 router.post("/thumbnail", Valid(PlayerRenderRequest), async (req, res) => {
-    const xml = JSON.parse(JSON.stringify(AvatarTemplate));
     const charAppUrl = `${Config.BaseUrl}/v1.1/avatar-fetch?placeId=0&userId=${req.body.userId}`;
-    xml.Settings.Arguments[0] = Config.BaseUrl;
-    xml.Settings.Arguments[1] = charAppUrl;
-    xml.Settings.Arguments[3] = 840;
-    xml.Settings.Arguments[4] = 840;
+    const script = AvatarLua
+        .replace(/%baseUrl%/g, JSON.stringify(Config.BaseUrl))
+        .replace(/%characterAppearanceUrl%/g, JSON.stringify(charAppUrl))
+        .replace(/%fileExtension%/g, JSON.stringify("PNG"))
+        .replace(/%x%/g, "840")
+        .replace(/%y%/g, "840");
     Console.Debug(`Queueing player thumbnail request with UserId ${req.body.userId}`);
-    return await box.Enqueue((port) => RequestRCCBase(req, res, xml, port, "Player thumbnail"));
+    return await box.Enqueue((port) => RequestRCCBase(req, res, script, port, "Player thumbnail"));
 });
 router.post("/thumbnail-3d", Valid(PlayerRenderRequest), async (req, res) => {
     const xml = JSON.parse(JSON.stringify(AvatarTemplate));

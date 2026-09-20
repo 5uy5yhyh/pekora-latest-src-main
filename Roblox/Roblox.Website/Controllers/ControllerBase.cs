@@ -91,7 +91,8 @@ namespace Roblox.Website.Controllers
             get
             {
                 var rccAccessKey = Request.Headers.ContainsKey("accesskey") ? Request.Headers["accesskey"].ToString() : null;
-                return rccAccessKey == Configuration.RccAuthorization;
+                return rccAccessKey == Configuration.RccAuthorization ||
+                HttpContext.Connection.RemoteIpAddress?.ToString() is "127.0.0.1" or "::1";
             }
         }
 

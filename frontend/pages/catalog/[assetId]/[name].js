@@ -10,10 +10,10 @@ const ItemPage = ({ name, description, assetId, ...props }) => {
                 <Head>
                     <title>{name} - Pekora</title>
                     <meta property="og:title" content={name}/>
-                    <meta property="og:url" content={`https://pekora.zip/catalog/${assetId}/--`}/>
+                    <meta property="og:url" content={`http://localhost:5000/catalog/${assetId}/--`}/>
                     <meta property="og:type" content="profile"/>
                     <meta property="og:description" content={description}/>
-                    <meta property="og:image" content={`https://pekora.zip/thumbs/asset.ashx?assetId=${assetId}`}/>
+                    <meta property="og:image" content={`http://localhost:5000/thumbs/asset.ashx?assetId=${assetId}`}/>
                     <meta name="twitter:card" content="summary_large_image"/>
                     <meta name="og:site_name" content="Pekora"/>
                     <meta name="theme-color" content="#E2231A"/>
@@ -26,7 +26,7 @@ const ItemPage = ({ name, description, assetId, ...props }) => {
 
 export async function getServerSideProps(context) {
     const { assetId } = context.query;
-    const info = await getProductInfoLegacy(assetId);
+    const info = await fetch(`http://127.0.0.1:5000/apisite/api/marketplace/productinfo?assetId=${assetId}`).then(r => r.json());
     try {
         return {
             props: {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Settings>
-  <BaseUrl>http://localhost:5000</BaseUrl>
+  <BaseUrl>http://127.0.0.1:5000</BaseUrl>
   <ContentFolder>content</ContentFolder>
+  <SettingsKey>123456</SettingsKey>
 </Settings>

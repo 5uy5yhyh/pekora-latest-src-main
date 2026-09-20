@@ -275,6 +275,18 @@ builder.Services.AddMvc(c =>
 
 var app = builder.Build();
 
+app.UseStaticFiles(
+    new StaticFileOptions
+    {
+        FileProvider =
+            new PhysicalFileProvider(
+                Roblox.Configuration.AdminBundleDirectory
+            ),
+
+        RequestPath = "/admin",
+    }
+);
+
 app.UseRouting();
 
 app.UseSwaggerUI(c =>
@@ -421,6 +433,18 @@ app.UseStaticFiles(
 );
 
 #endif
+
+app.UseStaticFiles(
+    new StaticFileOptions
+    {
+        FileProvider =
+            new PhysicalFileProvider(
+                Roblox.Configuration.AdminBundleDirectory
+            ),
+
+        RequestPath = "/admin",
+    }
+);
 
 app.UseRobloxSessionMiddleware();
 

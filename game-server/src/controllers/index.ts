@@ -813,7 +813,7 @@ export default class CommandHandler extends StdExceptions {
 	}
 
 	private async GetTeeShirtThumb(assetId: number): Promise<Buffer> {
-		// https://pekora.zip
+		// http://localhost:5000
 		const result = await axiosClient.get(`${conf.baseUrl}/asset/?id=${assetId}`, {
 			responseType: 'arraybuffer',
 			headers: {

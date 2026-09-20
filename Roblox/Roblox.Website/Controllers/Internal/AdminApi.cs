@@ -2137,7 +2137,7 @@ Thank you for your understanding,
             packageAssetIds = string.Join(",", ids.Select(c => c.ToString())),
         });
     }
-    [HttpPost("asset/backport-from-roblox"), StaffFilter(Access.CreateAssetCopiedFromRoblox)]
+    [HttpPost("asset/backport-from-roblox")]
     public async Task<dynamic> BackportAssetFromRoblox([Required, FromBody] CopyAssetRequest request)
     {
         var permissions = (await services.users.GetStaffPermissions(safeUserSession.userId)).Select(c => c.permission).ToArray();

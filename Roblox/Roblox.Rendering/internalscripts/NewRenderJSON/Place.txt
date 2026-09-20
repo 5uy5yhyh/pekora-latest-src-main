@@ -3,7 +3,7 @@
   "Settings": {
     "Type": "Place",
     "Arguments": [
-       "https://www.pekora.zip/asset?id=%universeId%",
+       "http://localhost:5000/asset?id=%universeId%",
        "PNG",
       %x%,
       %y%,

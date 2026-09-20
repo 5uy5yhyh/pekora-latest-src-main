@@ -1061,7 +1061,7 @@ local detailsMenuCount = 0
 function openDetails(assetId)
 	--[[if isCoreSetup then
 		closeMenu()
-		guiService:OpenBrowserWindow("https://www.pekora.zip/catalog/"..tostring(assetId).."/name")
+		guiService:OpenBrowserWindow("http://localhost:5000/catalog/"..tostring(assetId).."/name")
 	else]]
 		detailsMenuCount = detailsMenuCount + 1
 		local myDetailsMenuCount = detailsMenuCount
@@ -1370,7 +1370,7 @@ local function wearOutfit(outfitId)
 end
 
 local function outfitImageFetch(outfitId, attemptNumber)
-	return "https://www.pekora.zip/outfit-thumbnail/image?userOutfitId="..outfitId.."&width=100&height=100&format=png"
+	return "http://localhost:5000/outfit-thumbnail/image?userOutfitId="..outfitId.."&width=100&height=100&format=png"
 	--the below code works and is the retry functionality for a working image that we want, but the url handed back does not work for asset images
 	--[[local attemptNumber = (attemptNumber or 0) + 1
 	if attemptNumber > 10 then

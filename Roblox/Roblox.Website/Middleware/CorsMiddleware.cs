@@ -12,7 +12,7 @@ public class RobloxPlayerCorsMiddleware
     private string GenerateCspHeader(bool isAuthenticated)
     {
         var connectSrc =
-            "'self' https://*.pekora.zip wss://*.pekora.zip " +
+            "'self' " +
             "https://hcaptcha.com https://*.hcaptcha.com https://*.cdn.com " +
             "https://*.archive.org https://web.archive.org " +
             "https://challenges.cloudflare.com/* ws://localhost:*";
@@ -22,7 +22,7 @@ public class RobloxPlayerCorsMiddleware
         if (isAuthenticated)
         {
             imgSrc +=
-                " https://*.pekora.zip https://*.cdn.com " +
+                " https://*.cdn.com " +
                 "https://*.archive.org http://*.archive.org " +
                 "https://challenges.cloudflare.com/*";
         }
@@ -33,16 +33,16 @@ public class RobloxPlayerCorsMiddleware
             "https://translate.google.com " +
             "https://hcaptcha.com https://*.hcaptcha.com " +
             "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " +
-            "https://pekora.zip http://*.archive.org https://*.archive.org " +
+            "http://localhost:5000 http://*.archive.org https://*.archive.org " +
             "http://js.rbxcdn.com/46eace8231bf3c1ce64c55407d9ae60d.js " +
             "https://cdn.jsdelivr.net/npm/cryptocoins-icons@2.9.0/gulpfile.min.js";
 
         var fontSrc =
             "'self' https://fonts.gstatic.com https://cdn.jsdelivr.net " +
-            "http://www.pekora.zip https://pekora.zip https://*.pekora.zip " +
-            "https://www.pekora.zip/fonts/GothamSSmBold.woff2 " +
-            "https://www.pekora.zip/fonts/GothamSSmMedium.woff2 " +
-            "https://www.pekora.zip/fonts/GothamSSmBook.woff2";
+            "http://localhost:5000 http://localhost:5000 " +
+            "http://localhost:5000/fonts/GothamSSmBold.woff2 " +
+            "http://localhost:5000/fonts/GothamSSmMedium.woff2 " +
+            "http://localhost:5000/fonts/GothamSSmBook.woff2";
 
         var styleSrc = "";
 
@@ -58,7 +58,7 @@ public class RobloxPlayerCorsMiddleware
                 " https://www.goober.top/fonts/GothamSSmLight.woff2" +
                 " https://www.goober.top/fonts/GothamSSmBlack.woff2";
 
-            imgSrc += " https://*.pekora.zip";
+            
         }
 #endif
 
@@ -71,7 +71,7 @@ public class RobloxPlayerCorsMiddleware
             "child-src 'self'; " +
             "script-src " + scriptSrc + "; " +
             "frame-src 'self' https://hcaptcha.com https://challenges.cloudflare.com http://challenges.cloudflare.com https://*.archive.org; " +
-            "style-src 'unsafe-inline' 'self' http://*.archive.org https://fonts.googleapis.com https://hcaptcha.com https://*.hcaptcha.com https://pekora.zip https://www.pekora.zip https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css https://pekora.zip/fonts/gotham1.css http://*.pekora.zip" +
+            "style-src 'unsafe-inline' 'self' http://*.archive.org https://fonts.googleapis.com https://hcaptcha.com https://*.hcaptcha.com http://localhost:5000 http://localhost:5000 https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css http://localhost:5000/fonts/gotham1.css http://*.pekora.zip" +
             styleSrc + "; " +
             "font-src " + fontSrc + "; " +
             "connect-src " + connectSrc + "; " +

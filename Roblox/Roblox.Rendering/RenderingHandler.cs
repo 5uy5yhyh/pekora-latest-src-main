@@ -57,9 +57,10 @@ namespace Roblox.Rendering
             switch (type)
             {
                 case RenderType.Avatar:
-                    renderRequest.userId = id;
-                    url = "player/thumbnail";
-                    break;
+                   renderRequest.userId = id;
+                   allowedPlaceForRender.TryAdd(1, "");
+                   url = "player/thumbnail";
+                   break;
                 case RenderType.Avatar3D:
                     renderRequest.userId = id;
                     url = "player/thumbnail-3d";

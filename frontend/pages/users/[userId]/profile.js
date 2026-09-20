@@ -7,7 +7,7 @@ import { getUserInfo } from "../../../services/users";
 
 const UserProfilePage = ({ username, userId, description }) => {
     const ogTitle = (username || "Pekora") + "'s Profile";
-    const ogUrl = userId ? `https://pekora.zip/users/${userId}/profile` : '';
+    const ogUrl = userId ? `http://localhost:5000/users/${userId}/profile` : '';
     const ogDesc = description || 'Join Pekora and explore together!';
 
     return (
@@ -22,7 +22,7 @@ const UserProfilePage = ({ username, userId, description }) => {
 
                 <meta
                     property="og:image"
-                    content={`https://pekora.zip/thumbs/avatar-headshot.ashx?userId=${userId}`}
+                    content={`http://localhost:5000/thumbs/avatar-headshot.ashx?userId=${userId}`}
                 />
 
                 <meta name="og:site_name" content="Pekora" />

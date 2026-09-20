@@ -5,8 +5,9 @@ import { Console } from "./CS.js";
 export const HttpRequest = async (method, url, data) => {
     const isBrowser = typeof window !== "undefined";
     try {
-        if (isBrowser)
+        if (isBrowser) {
             throw new Error("Browser isn't supported for Requests!");
+        }
         return await axios.request({
             method,
             url: url.toString(),
@@ -20,7 +21,6 @@ export const HttpRequest = async (method, url, data) => {
                 return e.response;
             }
         }
-        // @ts-ignore
         throw new Error(e);
     }
 };
@@ -29,7 +29,9 @@ export const RCCRequest = async (port, data, jobExpiration) => {
         const headers = {
             "Content-Type": "text/xml",
         };
-        const xml = SOAP(Config.BaseUrl, jobExpiration, JSON.stringify(data));
+        const xml = SOAP(Config.BaseUrl, jobExpiration, typeof data === "string" ? data : JSON.stringify(data));
+        // Показываем настоящий SOAP-запрос
+        Console.Error(`[RCC SOAP REQUEST]\n${xml}`);
         const response = await axios.request({
             method: HttpMethod.POST,
             url: `${Config.RCCUrl}:${port}`,
@@ -46,8 +48,7 @@ export const RCCRequest = async (port, data, jobExpiration) => {
                 return e.response;
             }
         }
-        //throw new Error(e);
-        Console.Error(`Error occurred while requesting to RCC: ${e.message}`);
+        Console.Error(`RCC ERROR: ${e?.stack || e?.message || e}`);
         return null;
     }
 };
@@ -65,7 +66,7 @@ export class LuaValue {
 }
 export class BatchJobResultClass {
     type;
-    value; // present only for LUA_TSTRING
+    value;
     table;
 }
 export class SOAPEnvelope {

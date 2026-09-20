@@ -17,16 +17,16 @@ namespace Roblox.Website.Controllers
         {
             return new
             {
-                issuer = "https://apis.pekora.zip/oauth/",
-                authorization_endpoint = "https://apis.pekora.zip/oauth/v1/authorize",
-                token_endpoint = "https://apis.pekora.zip/oauth/v1/token",
-                introspection_endpoint = "https://apis.pekora.zip/oauth/v1/token/introspect",
-                revocation_endpoint = "https://apis.pekora.zip/oauth/v1/token/revoke",
-                resources_endpoint = "https://apis.pekora.zip/oauth/v1/token/resources",
-                userinfo_endpoint = "https://apis.pekora.zip/oauth/v1/userinfo",
-                jwks_uri = "https://apis.pekora.zip/oauth/v1/certs",
-                registration_endpoint = "https://create.pekora.zip/dashboard/credentials",
-                service_documentation = "https://create.pekora.zip/docs/reference/cloud",
+                issuer = "http://localhost:5000/oauth/",
+                authorization_endpoint = "http://localhost:5000/oauth/v1/authorize",
+                token_endpoint = "http://localhost:5000/oauth/v1/token",
+                introspection_endpoint = "http://localhost:5000/oauth/v1/token/introspect",
+                revocation_endpoint = "http://localhost:5000/oauth/v1/token/revoke",
+                resources_endpoint = "http://localhost:5000/oauth/v1/token/resources",
+                userinfo_endpoint = "http://localhost:5000/oauth/v1/userinfo",
+                jwks_uri = "http://localhost:5000/oauth/v1/certs",
+                registration_endpoint = "http://localhost:5000/dashboard/credentials",
+                service_documentation = "http://localhost:5000/docs/reference/cloud",
                 scopes_supported = new[]
                 {
                     "openid",

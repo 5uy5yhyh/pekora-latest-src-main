@@ -33,8 +33,16 @@ public class RbxThumbnails : ControllerBase
                 result = (await services.thumbnails.GetUserThumbnails(new[] { id })).ToList();
                 break;
             case ThumbnailType.Asset:
-                result = (await services.thumbnails.GetAssetThumbnails(new[] { id })).ToList();
-                break;
+    if (id == 2)
+    {
+        return new RedirectResult(
+            "/thumbnails/bear_face_mask_thumbnail.png",
+            false
+        );
+    }
+
+    result = (await services.thumbnails.GetAssetThumbnails(new[] { id })).ToList();
+    break;
             case ThumbnailType.PlaceIcon:
                 result = (await services.thumbnails.GetPlaceIcons(new[] { id })).ToList();
                 return new RedirectResult((Configuration.BaseUrl + result.FirstOrDefault()?.imageUrl) ?? "/img/placeholder.png", false);

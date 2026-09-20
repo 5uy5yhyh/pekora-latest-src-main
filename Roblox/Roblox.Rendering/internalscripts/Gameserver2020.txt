@@ -11,7 +11,7 @@
         "PreferredPlayerCapacity": 30,
         "UniverseId": %port%,
         "BaseUrl": "pekora.zip",
-        "PlaceFetchUrl": "https://www.pekora.zip/asset/?id=%placeId%",
+        "PlaceFetchUrl": "http://localhost:5000/asset/?id=%placeId%",
         "MatchmakingContextId": 1,
         "CreatorType": "User",
         "PlaceVersion": 1,
