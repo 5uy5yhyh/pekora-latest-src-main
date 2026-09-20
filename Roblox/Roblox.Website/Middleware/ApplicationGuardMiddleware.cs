@@ -1,3 +1,4 @@
+using System.Net;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
@@ -256,6 +257,12 @@ public class ApplicationGuardMiddleware
         await ctx.Response.WriteAsync("Object moved to <a href=\""+dest+"\">here</a>.");
     }
 
+    private static bool IsLoopbackRequest(HttpContext ctx)
+    {
+        var ip = ctx.Connection.RemoteIpAddress;
+        return ip is not null && IPAddress.IsLoopback(ip);
+    }
+
     public async Task InvokeAsync(HttpContext ctx)
     {
         var appGuardTimer = new MiddlewareTimer(ctx, "AppGuard");
@@ -264,6 +271,17 @@ public class ApplicationGuardMiddleware
         if (normalizedPath.EndsWith("/"))
         {
             normalizedPath = normalizedPath.Substring(0, normalizedPath.Length - 1);
+        }
+
+        // RCCService runs locally and does not use a browser User-Agent or session cookie.
+        // Let loopback requests reach the API so local asset delivery and avatar rendering
+        // are not redirected to the browser CAPTCHA/auth flow.
+        if (IsLoopbackRequest(ctx))
+        {
+            Console.WriteLine($"[RCC LOCAL BYPASS] {ctx.Request.Method} {ctx.Request.Path}");
+            appGuardTimer.Stop();
+            await _next(ctx);
+            return;
         }
 
         if (normalizedPath == "/robots.txt")
