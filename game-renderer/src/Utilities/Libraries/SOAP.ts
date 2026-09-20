@@ -14,7 +14,7 @@ export const SOAP = (
     xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:rob="http://localhost:5000/">
+    xmlns:rob="http://projex.zip/">
     <SOAP-ENV:Header/>
     <SOAP-ENV:Body SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
         <rob:BatchJob>
