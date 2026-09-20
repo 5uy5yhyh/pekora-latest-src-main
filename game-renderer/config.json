@@ -1,5 +1,5 @@
 {
-  "BaseUrl": "http://localhost:5000",
+  "BaseUrl": "http://127.0.0.1:5000",
   "RCCUrl": "http://127.0.0.1",
   "Debug": true,
   "Ports": {
